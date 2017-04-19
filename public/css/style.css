@@ -1,0 +1,59 @@
+html {
+    position: relative;
+    min-height: 100%;
+    box-sizing: border-box;
+    margin:0; padding: 0;
+}
+
+body {
+    font: 14px Helvetica, Arial, sans-serif;
+    margin-bottom: 30px;
+    padding: 60px 0 0 0;
+    background: linear-gradient(white, #ddd, white);
+    box-sizing: border-box;
+}
+
+.examples pre { font-size: 0.7em; }
+
+.container {
+    width: auto;
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #555;
+}
+
+.logo { padding-top: 1.1em; width: 2em; }
+.tab-content > section { padding:0.5em; }
+.widget {
+    font-size: 0.9em;
+    margin-top: 0.5em;
+    box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.3);
+    border-collapse: collapse;
+    overflow: hidden;
+    width:100%;
+    table-layout: fixed;
+    text-overflow: ellipsis;
+    background: white;
+    padding: 0.5em;
+}
+
+.tab-content {
+    background: white; border:#ccc 1px solid; border-top:none; padding:0.2em;
+    box-shadow: 0.1em 0.1em 0.3em rgba(0,0,0,0.3);
+    margin-top: -1px;
+}
+.nav-tabs .active a {
+    box-shadow: 0.05em 0.1em 0.2em rgba(0,0,0,0.3);
+    z-index: 1;
+}
+.nav-tabs .active {
+    overflow:hidden;height:43px; padding:5px 5px 0 2px;
+    left:-2px;
+}

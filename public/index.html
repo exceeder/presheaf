@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diagram Renderer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Abel|Ubuntu+Mono" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="js/ui.js"></script>
+
+  <link rel="stylesheet" href="css/style.css"/>
+  <script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path["XYP"] = "/presheaf/public/js/";
+  </script>
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+        SVG: {
+          scale: 120
+        },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js","[XYP]/xypic.js"]}
+     });
+  </script>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script
+</head>
+<body>
+<div class="container container-fluid">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <div class="pull-left logo"><span class="glyphicon glyphicon-retweet"></span></div>
+        <a class="navbar-brand" href="#">Diagram Renderer</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row">
+    <div class="col-xs col-md-5">
+      <div class="widget" style="padding:0.5em 1em">
+        <h4>Render</h4>
+        <div class="form-group">
+          <label for="diagram">Diagram in <a href="https://en.wikibooks.org/wiki/LaTeX/Xy-pic">xy-pic</a>:</label>
+          <textarea class="form-control" rows="9" id="diagram">
+X \ar@/_2pc/[rr]_{f;g} \ar[r]^f &Y \ar[r]^g &Z\
+          </textarea>
+        </div>
+        <button type="button" id="render" class="btn btn-primary">Render</button>
+      </div>
+    </div>
+    <div class="col-xs col-md-7" id="deployLog">
+      <div class="widget" style="padding:0.5em 1em">
+        <h4>Render</h4>
+        <div id="result" style="width:100%; height:18em;">
+
+        </div>
+        <button type="button" id="download" class="btn btn-primary" disabled>Download</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row" style="margin-top:2em;">
+    <div class="col-xs col-md-12">
+    <div class="">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a data-toggle="tab" href="#examples">Simple Examples</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#componentLog">Advanced Examples</a></li>
+        <li role="presentation"><a data-toggle="tab" href="#help">Help</a></li>
+      </ul>
+      <div class="tab-content">
+        <section id="examples" class="tab-pane fade in active">
+          <h4>Simple Examples</h4>
+          <ul class="examples">
+            <li><a href="#">Functions</a><pre>X \ar[r]^f &Y \ar[r]^g &Z</pre></li>
+            <li><a href="#">Composition</a><pre>X \ar@/_2pc/[rr]_{f;g} \ar[r]^f &Y \ar[r]^g &Z\</pre></li>
+            <li><a href="#">State machine</a>
+<pre>*\txt{start} \ar[r]
+ & *++[o][F-]{0} \ar@(r,u)[]^b \ar[r]_a
+ & *++[o][F-]{1} \ar[r]^b \ar@(r,d)[]_a
+ & *++[o][F-]{2} \ar[r]^b
+  \ar `dr_l[l] `_ur[l] _(.2)a[l]
+ & *++[o][F=]{3}
+  \ar `ur^l[lll] `^dr[lll]^b [lll]
+  \ar `dr_l[ll] `_ur[ll] [ll]
+</pre></li>
+          </ul>
+        </section>
+
+        <section id="componentLog" class="tab-pane fade">
+          <h4>Advanced Examples</h4>
+          <ul class="examples">
+            <li><a href="#">Commutative Diagram</a>
+              <pre>
+U \ar@/_/[ddr]_y \ar@{.>}[dr]|{\langle x,y \rangle} \ar@/^/[drr]^x \\
+ & X \times_Z Y \ar[d]^q \ar[r]_p & X \ar[d]_f \\
+ & Y \ar[r]^g & Z
+</pre></li>
+          </ul>
+        </section>
+
+        <section id="help" class="tab-pane fade">
+          <h4>Usage</h4>
+          TODO
+        </section>
+
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <div id="errors">::</div>
+  </div>
+</footer>
+
+
+</body>
+</html>
